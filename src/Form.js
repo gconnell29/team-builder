@@ -9,8 +9,15 @@ function Form(props) {
     role: ''
   });
   
-  const {setMembers} = props;
-  function saveMember() {
+  const { members, setMembers } = props;
+  function handleSubmit(event) {
+    event.preventDefault();
+    setMembers([...members, user]);
+    setUser({
+      name: '',
+      email: '',
+      role: ''
+    })
   }
 
   function handleChange(event) {
@@ -19,11 +26,12 @@ function Form(props) {
     setUser({...user,
       [event.target.name]: event.target.value
     });
-    console.log(user);
   }
 
+  console.log(user);
+
   return (
-    <form>
+    <form onSubmit={event => handleSubmit(event)}>
       <label>
         Name:
         <input 
