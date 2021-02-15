@@ -31,39 +31,45 @@ function Form(props) {
   console.log(user);
 
   return (
-    <form onSubmit={event => handleSubmit(event)}>
-      <label>
-        Name:
-        <input 
-          type='text'
-          name='name'
-          placeholder='Full Name'
-          onChange={event => handleChange(event)}
-          value={user.name}
-        />
-      </label>
-      <label>
-        Email:
-        <input 
-          type='email'
-          name='email'
-          placeholder='email'
-          onChange={event => handleChange(event)}
-          value={user.email}
-        />
-      </label>
-      <label>
-        Role:
-        <input 
-          type='text'
-          name='role'
-          placeholder='role'
-          onChange={event => handleChange(event)}
-          value={user.role}
-        />
-      </label>
-      <button>Submit!</button>
-    </form>
+    <>
+      <form onSubmit={event => handleSubmit(event)}>
+        <label>
+          Name:
+          <input 
+            type='text'
+            name='name'
+            placeholder='Full Name'
+            onChange={event => handleChange(event)}
+            value={user.name}
+          />
+        </label>
+        <label>
+          Email:
+          <input 
+            type='email'
+            name='email'
+            placeholder='email'
+            onChange={event => handleChange(event)}
+            value={user.email}
+          />
+        </label>
+        <label>
+          Role:
+          <input 
+            type='text'
+            name='role'
+            placeholder='role'
+            onChange={event => handleChange(event)}
+            value={user.role}
+          />
+        </label>
+        <button>Submit!</button>
+        </form>
+        <h1>Current Team Member List</h1>
+        <ul>
+        {members.map((member, index) => <li key={index} >{`Name: ${member.name} Email: ${member.email} Role: ${member.role}`}</li>) }
+        </ul>
+    </>
   );
 }
 
