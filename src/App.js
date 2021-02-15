@@ -8,7 +8,7 @@ import Form from './Form'
 function App() {
   const [teamMembers, setTeamMembers]=useState([]);
   return (
-    <Form />
+    <Form setMembers={setTeamMembers} />
   );
 }
 
